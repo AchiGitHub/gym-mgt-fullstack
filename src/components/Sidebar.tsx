@@ -9,13 +9,11 @@ import {
   BoxProps,
   FlexProps,
 } from "@chakra-ui/react";
-import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
-} from "react-icons/fi";
+import { FiSettings } from "react-icons/fi";
+import { VscDashboard } from "react-icons/vsc";
+import { TbUsers } from "react-icons/tb";
+import { AiOutlineTeam } from "react-icons/ai";
+import { BiStoreAlt } from "react-icons/bi";
 import { IconType } from "react-icons";
 import { ReactText } from "react";
 
@@ -29,11 +27,10 @@ interface LinkItemProps {
 }
 
 const LinkItems: Array<LinkItemProps> = [
-  { name: "Home", icon: FiHome },
-  { name: "Trending", icon: FiTrendingUp },
-  { name: "Explore", icon: FiCompass },
-  { name: "Favourites", icon: FiStar },
-  { name: "Settings", icon: FiSettings },
+  { name: "Dashboard", icon: VscDashboard },
+  { name: "Members", icon: TbUsers },
+  { name: "Group", icon: AiOutlineTeam },
+  { name: "Store", icon: BiStoreAlt },
 ];
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
