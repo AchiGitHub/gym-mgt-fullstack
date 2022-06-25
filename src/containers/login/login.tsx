@@ -10,8 +10,15 @@ import {
   Stack,
   Image,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
+
+  const onLogin = (username: string, password: string) => {
+    navigate("/home", { replace: true });
+  };
+
   return (
     <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
       <Flex p={8} flex={1} align={"center"} justify={"center"}>
@@ -34,7 +41,11 @@ export default function Login() {
               <Checkbox>Remember me</Checkbox>
               <Link color={"blue.500"}>Forgot password?</Link>
             </Stack>
-            <Button colorScheme={"blue"} variant={"solid"}>
+            <Button
+              colorScheme={"blue"}
+              variant={"solid"}
+              onClick={() => onLogin("jane", "doe")}
+            >
               Sign in
             </Button>
           </Stack>

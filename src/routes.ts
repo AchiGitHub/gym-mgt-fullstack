@@ -9,6 +9,11 @@ const routes = [
     component: Views.Login
   },
   {
+    path: "/home",
+    layout: DefaultLayout,
+    component: Views.Home
+  },
+  {
     path: "*",
     layout: DefaultLayout,
     component: Views.Login
