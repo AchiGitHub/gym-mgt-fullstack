@@ -9,7 +9,6 @@ import {
   BoxProps,
   FlexProps,
 } from "@chakra-ui/react";
-import { FiSettings } from "react-icons/fi";
 import { VscDashboard } from "react-icons/vsc";
 import { TbUsers } from "react-icons/tb";
 import { AiOutlineTeam } from "react-icons/ai";
