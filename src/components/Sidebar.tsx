@@ -15,7 +15,7 @@ import { BiStoreAlt } from "react-icons/bi";
 import { MdCardMembership, MdOutlinePayments } from "react-icons/md";
 import { IconType } from "react-icons";
 import { ReactText } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface SidebarProps extends BoxProps {
   onClose: () => void;
@@ -37,7 +37,6 @@ const LinkItems: Array<LinkItemProps> = [
 ];
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
-  const navigate = useNavigate();
   return (
     <Box
       transition="3s ease"

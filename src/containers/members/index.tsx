@@ -1,28 +1,27 @@
-import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react";
-import React from "react";
+import { Tabs, TabList, TabPanels, TabPanel } from "@chakra-ui/react";
+import Table from "../../components/Table";
+import PageTabs from "../../components/Tabs";
 
 function Members() {
   return (
     <Tabs>
       <TabList>
-        <Tab>One</Tab>
-        <Tab>Two</Tab>
-        <Tab>Three</Tab>
+        <PageTabs key={1} tabs={tabs}>
+          <TabPanels>
+            {tabs.map((tab, idx) => {
+              return (
+                <TabPanel key={idx}>
+                  <Table data={tab} />
+                </TabPanel>
+              );
+            })}
+          </TabPanels>
+        </PageTabs>
       </TabList>
-
-      <TabPanels>
-        <TabPanel>
-          <p>one!</p>
-        </TabPanel>
-        <TabPanel>
-          <p>two!</p>
-        </TabPanel>
-        <TabPanel>
-          <p>three!</p>
-        </TabPanel>
-      </TabPanels>
     </Tabs>
   );
 }
 
 export default Members;
+
+const tabs = ["6 Months", "12 Months", "1 Month"];
