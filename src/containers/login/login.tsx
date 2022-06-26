@@ -16,7 +16,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   const onLogin = (username: string, password: string) => {
-    navigate("/home", { replace: true });
+    navigate("/", { replace: true });
   };
 
   return (

@@ -4,14 +4,19 @@ import DefaultLayout from "./layouts/DefaultLayout";
 
 const routes = [
   {
-    path: "/",
+    path: "/login",
     layout: AuthLayout,
     component: Views.Login
   },
   {
-    path: "/home",
+    path: "/",
     layout: DefaultLayout,
     component: Views.Home
+  },
+  {
+    path: "/members",
+    layout: DefaultLayout,
+    component: Views.Members
   },
   {
     path: "*",

@@ -4,7 +4,6 @@ import {
   Flex,
   Icon,
   useColorModeValue,
-  Link,
   Text,
   BoxProps,
   FlexProps,
@@ -13,8 +12,10 @@ import { VscDashboard } from "react-icons/vsc";
 import { TbUsers } from "react-icons/tb";
 import { AiOutlineTeam } from "react-icons/ai";
 import { BiStoreAlt } from "react-icons/bi";
+import { MdCardMembership, MdOutlinePayments } from "react-icons/md";
 import { IconType } from "react-icons";
 import { ReactText } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 interface SidebarProps extends BoxProps {
   onClose: () => void;
@@ -23,16 +24,20 @@ interface SidebarProps extends BoxProps {
 interface LinkItemProps {
   name: string;
   icon: IconType;
+  route: string;
 }
 
 const LinkItems: Array<LinkItemProps> = [
-  { name: "Dashboard", icon: VscDashboard },
-  { name: "Members", icon: TbUsers },
-  { name: "Group", icon: AiOutlineTeam },
-  { name: "Store", icon: BiStoreAlt },
+  { name: "Dashboard", icon: VscDashboard, route: "/" },
+  { name: "Members", icon: TbUsers, route: "/members" },
+  { name: "Group", icon: AiOutlineTeam, route: "/group" },
+  { name: "Store", icon: BiStoreAlt, route: "/store" },
+  { name: "Payments", icon: MdOutlinePayments, route: "/payments" },
+  { name: "Membership Type", icon: MdCardMembership, route: "membership" },
 ];
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+  const navigate = useNavigate();
   return (
     <Box
       transition="3s ease"
@@ -51,7 +56,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem key={link.name} icon={link.icon} to={link.route}>
           {link.name}
         </NavItem>
       ))}
@@ -62,13 +67,14 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 interface NavItemProps extends FlexProps {
   icon: IconType;
   children: ReactText;
+  to: string;
 }
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+const NavItem = ({ icon, children, to, ...rest }: NavItemProps) => {
   return (
     <Link
-      href="#"
       style={{ textDecoration: "none" }}
-      _focus={{ boxShadow: "none" }}
+      // _focus={{ boxShadow: "none" }}
+      to={to}
     >
       <Flex
         align="center"
